@@ -38,6 +38,10 @@
     --border-light: #2a2a2a;
     --timeline-dot: #666;
     --timeline-current: #e0e0e0;
+
+    strong {
+        color: whitesmoke;
+    }
 }
 
 body {
@@ -116,20 +120,21 @@ h1 {
 }
 
 .availability {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    display: inline-block;
     padding: 12px 20px;
     background-color: var(--surface-color);
     border-radius: 6px;
     font-size: 0.95rem;
     color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .flag {
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    margin: 0 2px;
     transition: transform 0.3s ease;
+    vertical-align: middle;
 }
 
 .flag:hover {
@@ -267,21 +272,60 @@ a:hover {
 
 .links-list {
     list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
 }
 
 .links-list li {
-    margin-bottom: 12px;
+    display: block;
 }
 
-.links-list a {
-    display: inline-flex;
+.link-card {
+    display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 16px;
+    padding: 16px;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    transition: all 0.2s ease;
 }
 
-.link-label {
-    color: var(--text-faded);
-    min-width: 80px;
+.link-card:hover {
+    background-color: var(--surface-alt);
+    border-color: var(--border-color);
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+.link-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    opacity: 0.8;
+}
+
+[data-theme="dark"] .link-icon {
+    filter: invert(1);
+}
+
+.link-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.link-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+
+.link-description {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
 }
 
 .projects-list {
@@ -324,7 +368,7 @@ footer {
 
 @media (max-width: 600px) {
     .container {
-        padding: 48px 20px;
+        padding: 64px 20px 48px;
     }
 
     h1 {
@@ -332,8 +376,12 @@ footer {
     }
 
     .availability {
-        flex-wrap: wrap;
-        gap: 8px;
+        font-size: 0.9rem;
+        padding: 10px 16px;
+    }
+
+    .flag {
+        font-size: 1rem;
     }
 
     .theme-toggle {
