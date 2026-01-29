@@ -116,7 +116,16 @@ h1 {
 .tagline {
     font-size: 1.1rem;
     color: var(--text-muted);
-    margin-bottom: 24px;
+    margin-bottom: 8px;
+}
+
+.document-links {
+    font-size: 0.9rem;
+    margin-bottom: 32px;
+}
+
+.document-link {
+    font-size: 0.9rem;
 }
 
 .availability {
